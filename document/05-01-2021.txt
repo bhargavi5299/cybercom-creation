@@ -1,0 +1,11 @@
+today i learned about git and git hub
+started from git i go through some basic git tutorials in that i understand basic command like 
+1.git init
+2.git status
+3.git add.
+4.git commit.
+5.git push origin.
+Then create account in git hub also understand the clone command,status command,fetch command and learn how to upload files on github.
+i follow varoius source and understnad basic things i face problems but with the help of google i found solutions.
+Also i learn new things like how to remove repository also what are the meaning of paasphase .
+ i enjoyed whole day not boaring little second i'm very excited to learn new things.
