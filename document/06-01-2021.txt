@@ -1,0 +1,12 @@
+Today i learn different command of git .
+1)git diff(compare working directory to stage directory)
+2)git rm (for delete file)
+3)git rm --cached(only untracked file not remove)
+4)git status -s( show the modified data)
+5)git log (shown how many people commit)
+6)git log - p -1(like that we add any number of line so we clear about commit at line)
+7)git merge head(show at which point it differ)
+8)git branch(create,delete branch)
+9)git revert(two purpose for reveret the file and delete the data specific which we will revert)
+i keep learning those command so that i more and more clear about that.otherwise day was good.
+Thank you.
