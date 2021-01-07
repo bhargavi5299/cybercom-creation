@@ -1,0 +1,10 @@
+Today i learned another git command.which i mentioned below
+1)git checkout --
+2)git revert
+3)git reset
+4)git push & pull
+5)git rebase
+6)git head
+Also what are the differrneces of push and fetch.
+In my practice repo i practice  all git diff,git log,git blame,git log --oneline,git log -stat,and as dissussed in our meeting i try git squash,and git show .
+all three days i learned all the basic command of git.
