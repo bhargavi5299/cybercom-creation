@@ -1,0 +1,48 @@
+.box1
+		{
+			 margin: 5px;
+  			border: 2px solid #ccc;
+  			float: left;
+ 			 width: 210px;
+ 			 height: auto;
+		}
+		.back
+		{
+			 width: 210px;
+  			height: 200px;
+  			background-color: black;
+  			
+
+		}
+		.contain {
+ 		 
+		  text-align: center;
+		  background-color: #ccc;
+		  font-weight: bold;
+
+
+}
+.text
+{
+	color: #fff;text-align: center;padding-top: 80px;
+}
+.box1 p
+{
+	 text-align: center;
+}
+.main
+{
+	margin-left: 200px;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.para
+{
+	width: 915px; 
+	height: 100px;
+	 font-weight: bold;
+	 border-bottom: 2px solid #ccc;
+}
