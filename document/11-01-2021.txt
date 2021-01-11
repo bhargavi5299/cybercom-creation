@@ -1,0 +1,9 @@
+
+Today i learned html and js different task.
+
+1 )Html Table,profile-property,image-property,alignment property 
+2 )if else condition.(js)
+3) boolean logic.(true or false value)(js)
+4)array:(declartion of array and types of array)(js)
+5)Ternery & switch Operator.(condtion whether it is true or false understand the conecpt)(js)
+	
