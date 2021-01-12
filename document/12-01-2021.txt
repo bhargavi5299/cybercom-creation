@@ -1,0 +1,17 @@
+*******HTML and JS********
+1)HTML form attribute:Today i learn form attribute of html.
+	<textarea>
+	<select>
+	<input>
+	<file upload>
+	<button> reset ,submit 
+	<radio>
+	<checkbox>
+2)JS:
+1)js enginee(convert code into machine code and run).
+2)Execution context and stack.
+3) global execution context(variable object,scope chain, this variable).
+4)execution phase.
+5)scopping chain.
+6)loops.
+7)versions of js.
