@@ -1,0 +1,28 @@
+*************HTML AND JS***************
+1)DOM and DOM Manipulation:-
+		Dom is object model.
+		It is structured representation of html document.
+		DOM is used to connect webpage javascript.
+2)HTMl and CSS:-
+		Basic css property.
+		class,div,id.3
+3)Game development:-
+			Fundamental game variables.
+			1)Intialized function.
+			2)use Queryselector:The querySelector Method returns the first element 
+								that matches a specify document.
+			3)Display the dice img based on random number.
+			4) Update the round score using if condition.
+			5)hide the dice and all scores using querySelector.
+4)Session Storage:-
+			The sessionStorage object stores data for only one session .
+			exmple...var name = sessionStorage.getItem("key");
+			session is valid only for that particular tab.
+			
+5)Local Storage:-
+			Data is shared between all tabs.
+			need same origin,URL path can be different.
+			Data will not expier.
+			
+6)content security policy:- Is like http response header,It is use to enhance the 
+							 security of document.
