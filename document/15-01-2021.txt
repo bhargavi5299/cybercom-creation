@@ -1,0 +1,22 @@
+******html and js********
+1)Primitiv and Object:-
+	In primitiv Number,String,Boolean,Undefined,
+	Arrays,Function,Object,,Dates.
+2)Constructor:-
+	Constructor is blue print of class.
+3)Inheritance:-
+	one object is based on another object.
+4)Method:-
+	hasownProperty()
+	Is prototypeOf()	
+	Consructor()
+	tostring()
+	Valueof()
+5)Prototype chain:-
+	Every js object has a prototype property which makes inheritance possible.
+	When a certain method property called the search start in the object itself
+	if it can not find the search move on to the next object this continues untill
+	 the method is found its called prototype chain.
+6)object.create :-Builts an object that directly inherit passed argument.
+7)First class function:- we can pass function as an argument.	
+
