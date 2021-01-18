@@ -1,0 +1,24 @@
+**************HTML AND JS***********
+
+1)Arrow Function:-
+		Arrow functions allow us to write shorter function syntax:
+			hello = () => {
+  			return "Hello!";
+			}
+	
+2)Arrow function with laxical:-
+
+		In regular functions the this keyword represented the object that called the function, 				which could be the window, the document, a button or whatever.
+
+		With arrow functions the this keyword always represents the object that defined the 				arrow function.
+
+3)Destructuring:-
+		Destructuring implies breaking down a complex structure into simpler parts.
+		We can use destructuring in function and object.
+4)Array:-
+		new array methods are added in ES6 like Array.from(),findIndex(),find().
+		Array.from():-It converts array-like values and iterable values into arrays.
+		Array.findIndex():-The Array.findIndex() returns the index of the first element of the given 		array that satisfies the given condition.
+		Array.find():-It finds a value from an array, based on the specific criteria that are passed 			to this method.
+		
+5)Fieldset(html) :-	The <fieldset> tag is used to group related elements in a form.
