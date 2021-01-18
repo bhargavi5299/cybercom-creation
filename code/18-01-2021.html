@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Form</title>
+    <style>
+        label{
+            width: 240px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        fieldset{
+            margin-top: 5px;
+        }
+        textarea{
+            margin-top: 5px;
+        }
+        .submit{
+            margin-top: 10px;
+            margin-left: 2px;
+        }
+    </style>
+</head>
+<body>
+    <form action="Success.html">
+        <fieldset>
+            <legend>Your address</legend>
+
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname"><br>
+            
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname"><br>
+            
+            <label for="street">Street</label>
+            <input type="text" id="street" name="street"><br>
+            
+            <label for="city">City</label>
+            <input type="text" id="city" name="city">
+        </fieldset>
+        <fieldset>
+            <legend>Additional Details</legend>
+            
+            <label for="bgraohy">Biography</label>
+            <textarea rows="3" cols="30"  id="bgraohy" name="bgraphy"></textarea><br>
+            
+            <label for="img">Image</label>
+            <input type="file" name="upload" id="file-select"><br>
+            
+            <label for="age">Age Group</label>
+            <select id="age" name="AgeGroup">
+                <option value="0to9years">0 to 9 years</option>
+                <option value="10toq5years">10 to 15 years</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <legend>Interests</legend>
+            
+            <label for="hobbies">Hobbies</label>
+            <select id="hobby" name="Hobby">
+                <option value="soccer">Playing Soccer</option>
+                <option value="dancing">Dancing</option>
+                <option value="Gardening">Gardening</option>
+                <option value="movues">Watching Movies</option>
+            </select><br>
+
+            <label for="car">Favourite car ?</label>
+            <select id="car" name="car">
+                <option value="Volvo" selected>Volvo</option>
+                <option value="audi">Audi</option>
+                <option value="bmw">BMW</option>
+                <option value="kia">Kia Seltos</option>
+            </select><br>
+
+            <label for="transport">Favourite public transport ?</label>
+            <textarea rows="3" cols="30" id="transport" name="public">Ground train bus Water</textarea>
+        </fieldset>
+        <input type="submit" value="Submit" class="submit">
+        <input type="reset" value="Reset" class="submit">
+
+    </form>
+</body>
+</html>
