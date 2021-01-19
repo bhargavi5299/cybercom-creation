@@ -1,0 +1,55 @@
+body{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 135vh;
+}
+form{
+    height: 130vh;
+    width: 80vh;
+    justify-content: center;
+    align-items: center;
+    background-color:lightgray;
+    flex-direction: column;
+    border: solid gray;
+    padding: 10px;
+}
+.heading{
+    margin-top: 10px;
+}
+
+label{
+    margin-left: 15px;
+    /* width: 150px; */
+    display: inline-block;
+    text-align: right;
+    margin-top: 10px;
+}
+h6{
+    margin-left: 170px;
+    margin-top: initial;
+    margin-bottom: auto;
+}
+.fa {
+    color: blue;
+}
+.finame
+{
+    margin-left: 10px;
+}
+.laname
+{
+     margin-left: 10px;
+}
+.emai
+{
+   margin-left: 35px; 
+}
+.passw
+{
+    margin-left: 30px;
+}
+.repassw
+{
+    margin-left: 10px;
+}
