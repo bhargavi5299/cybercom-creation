@@ -1,0 +1,11 @@
+******************HTML AND JS****************
+1)Classes:-
+		A class can be defined by using a class declaration. A class keyword is used to declare 		a class with any particular name. According to JavaScript naming conventions, the name 		of the class always starts with an uppercase letter.
+			
+2)Subclass :-
+		class are the blueprint.Javascript follow the inheritance property for making subclasses.
+		It creates a constructor and and each constructor  inherit the property of others  				including their own property.
+3)PHP isset function:-
+
+		The isset() function checks whether a variable is set, which means that it has to be 		declared and is not NULL
+
