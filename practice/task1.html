@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <script>
+
+var myObject ={
+    name:'ketan',
+    age:'22',
+    BOD:'30-1-199',
+};
+
+//keys is properties of object
+
+var keys = Object.keys(myObject);
+
+var getKeys = function(obj){
+   var keys = [];
+   for(var key in obj){
+      keys.push(key);
+   }
+   return keys;
+}
+
+console.log(keys)
+        </script>
+    </head>
+
+    <body>
+        <h1>Task 1 : Properties of Object</h1>
+    </body>
+</html>
