@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	<link rel="stylesheet" type="text/css" href="register.css">
+</head>
+<body>
+
+
+<form id="myform" action="login.html">
+
+	<h1><center>Registration Form</center></h1>
+
+	<center><input type="text" name="fname" id="fname" placeholder="Name" ></center><br>
+	<center><input type="email" name="email" id="email" placeholder="Email"></center><br>
+	<center><input type="password" name="pass" id="pass" placeholder="Password"></center><br>
+	<center><input type="password" name="cpass" id="cpass" placeholder="Confirm Password"></center><br>
+
+
+	<select name="c" id="city" required="Select City">
+			<option>Select City</option>
+			<option value="Ahmedabad">Ahmedabad</option>
+			<option value="rajkot" >Rajkot</option>
+			<option value="surat" >Surat</option>
+			
+		</select><br><br>
+
+		<select name="c1" id="state" required="Select State">
+			<option>Select State</option>
+			<option value="gujrat">Gujrat</option>
+			<option value="mumbai" >Mumbai</option>
+			<option value="rajasthan" >Rajasthan</option>
+			
+		</select><br><br>
+
+		<input type="checkbox" name="terms" value="Terms" required="check terms"> Terms & Conditions<br><br><br>
+
+		<center><input type="button" name="submit" value="Register" onclick="Adminobject();"/></center>
+
+</form>
+
+ <script src="register.js"></script>
+
+</body>
+</html>
