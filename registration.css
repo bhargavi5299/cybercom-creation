@@ -1,0 +1,46 @@
+form{
+	border:1px groove;
+	width: 600px;
+	height: 500px;
+	margin-left: 450px;
+}
+
+
+h1{
+	font-size: 25px;
+
+}
+input[type="text"]
+{
+	width: 50%;
+
+
+}
+input[type="password"]
+{
+	width: 50%;
+	
+}
+input[type="email"]
+{
+	width: 50%;
+	
+}
+select{
+	margin-left: 145px;
+	width: 52%;
+	
+}
+input[type=checkbox]
+{
+	margin-left: 148px;
+	
+	
+}
+input[type="button"]
+{
+	width: 30%;
+	background-color: yellow;
+	
+}
+
