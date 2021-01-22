@@ -1,0 +1,33 @@
+****************Basic PHP******************
+1)PHP :-php is hypertext preprocessor.
+	also its like personal home page.
+
+2)Basic function:-
+		phpinfo():-it show detail of php function
+		php INFO_GENERAL():- show Build command of php
+
+3)Php indentation:-
+		Proper way to write PHP code.
+
+4) echo:-to Print statement.
+
+5)print:-it is also print statement.
+	difference between echo and print is that
+	echo not have return value.
+	print have return value.
+	we can use (,)in echo but we can nor use (,)in print.
+
+6)loops:- For loop,do-while loop,while loop also foreach loops 
+			in foreach loop it store the  array in key value so 
+			it's easy to store array in key.
+
+7)Operators: Assignment operator,logical operator,comparision
+		operator,triple equlas condition.
+8)if-else:
+		if-else
+		if-elseif
+		nested if
+		
+9)embaded file:we can use php value in html box.
+example...<input type="text" value= <?php print $text ;?> ">
+
