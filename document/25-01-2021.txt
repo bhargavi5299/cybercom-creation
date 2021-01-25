@@ -1,0 +1,27 @@
+The die() function is an alias of the exit() function.
+
+
+PHP preg_match() function:-
+The preg_match() function is a built-in function of PHP that performs a regular expression match. This function searches the string for pattern, and returns true if the pattern exists otherwise returns false.
+
+Function:
+	Function default.
+	Function with argument.
+	Function have return value.
+
+GLobal function:-$GLOBALS is a PHP super global variable which is used to access global variables from anywhere in the PHP script (also from within functions or methods).
+
+
+String Function:-
+addcslashes:-Returns a string with backslashes in front of the specified characters
+addslashes:-Returns a string with backslashes in front of predefined characters
+strlen:-Returns the length of a string
+htmlentities:-Converts characters to HTML entities
+ltrim:-Removes whitespace or other characters from the left side of a string
+rtrim:-Removes whitespace or other characters from the right side of a string
+str_word_count:-count the word of string.
+
+
+
+
+
