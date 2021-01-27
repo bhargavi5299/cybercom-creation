@@ -1,0 +1,48 @@
+
+
+
+PHP array:-
+PHP array is an ordered map (contains value on the basis of key). It is used to hold multiple values of similar type in a single variable.
+
+There are 3 types of array in PHP.
+
+1)Indexed Array
+2)Associative Array
+3)Multidimensional Array
+
+Indexed Array:-PHP index is represented by number which starts from 0. We can store number, string and object in the PHP array. All PHP array elements are assigned to an index number by default.
+
+
+Associative Array:-We can associate name with each array elements in PHP using => symbol.
+
+
+PHP Multidimensional Array:-
+PHP multidimensional array is also known as array of arrays. It allows you to store tabular data in an array
+
+
+
+
+include only generates a warning, i.e., E_WARNING, and continue the execution of the script.
+require generates a fatal error, i.e., E_COMPILE_ERROR, and stop the execution of the script.
+
+
+
+include_once
+It is similar as include but it includes external file only one time. First, it will check whether the specified file is already included or not. If the file is not included then it only includes an external file.
+
+require_once
+It is same as require, but only one time it includes the external file.
+
+
+
+
+strpos:- 
+Finds the position of the last occurrence of a string inside another string
+
+
+PHP String substr_replace() Function
+The substr_replace is an in-built function of PHP, which replaces a part of the string with another text within a string.
+
+
+
+The str_replace() function is a case-sensitive, built-in function of PHP which replaces some character of the string with other characters. It is used to replace all the occurrences of the search string with the replacement string.
