@@ -1,0 +1,26 @@
+
+
+1)Word censoring :- Word censoring is hiding unacceptable words from the audience
+
+2)PHP str_ireplace() Function:-The str_ireplace() function replaces some characters with some other characters in a string.
+
+3)date_time():-
+format parameter of the date() function is:-
+d - Represents the day of the month (01 to 31)
+m - Represents a month (01 to 12)
+Y - Represents a year (in four digits)
+l (lowercase 'L') - Represents the day of the week
+
+The PHP strtotime() function is used to convert a human readable date string into a Unix timestamp .
+
+4)The PHP mktime() function returns the Unix timestamp for a date. The Unix timestamp contains the number of seconds between the Unix Epoch (January 1 1970 00:00:00 GMT) and the time specified.
+
+
+5)The rand():- The rand()function generates a random integer.
+
+6)$_SERVER :-$_SERVER is a PHP super global variable which holds information about headers, paths, and script locations.
+
+7)Visitor Ip Address:-PHP provides PHP $_SERVER variable to get the user IP address easily. We can track the activities of the visitor on the website for the security purpose, or we can know that who uses my website and many more.
+
+Exmple..$_SERVER['REMOTE_ADDR'] - It returns the IP address of the user currently visiting the webpage.
+
