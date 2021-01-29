@@ -1,0 +1,12 @@
+<?php
+ob_start();?>
+<h1>page</h1>
+<?php
+$repage='http://google.co.uk';
+$re=false;
+if($repage==true)
+{
+	header('Location'.$repage);
+}
+ob_end_flush();
+?>
