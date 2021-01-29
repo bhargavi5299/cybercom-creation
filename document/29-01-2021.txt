@@ -1,0 +1,31 @@
+1)htmlentities():- 2 parameter (string flags)
+	
+	conveet  html function into htmlentities code 
+	html_entity_decode(string ,flag):-decode string
+
+2)Cookie:-
+Cookie is created at server side and saved to client browser. Each time when client sends request to the server, cookie is embedded with request. Such way, cookie can be received at the server side.
+
+3)session:-
+PHP session is used to store and pass information from one page to another temporarily .session creates unique user id for each browser to recognize the user and avoid conflict between multiple browsers.
+
+4)FileHandle:- PHP File System allows us to create file, read file line by line, read file character by character, write file, append file, delete file and close file.
+
+fopen() function is used to open file or URL and returns resource. The fopen() function accepts two arguments: $filename and $mode. 
+
+The PHP fread() function is used to read data of the file. It requires two arguments: file resource and file size.
+
+The PHP fgets() function is used to read single line from the file.
+
+The PHP fgetc() function is used to read single character from the file.
+
+The PHP fwrite() function is used to write content of the string into file.
+
+We can append data into file by using a or a+ mode in fopen() function.
+
+we can delete any file using unlink() function.
+
+5)PHP $_FILES:-
+The PHP global $_FILES contains all the information of file. By the help of $_FILES global, we can get file name, file type, file size, temp file name and errors associated with file.
+
+The move_uploaded_file() function moves the uploaded file to a new location. The move_uploaded_file() function checks internally if the file is uploaded thorough the POST request. It moves the file if it is uploaded through the POST request.
