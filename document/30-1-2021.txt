@@ -1,0 +1,15 @@
+1)Sending Email:-
+				-mail() function to send an email.This function requires three mandatory arguments that specify the recipient's email address, the subject of the the message and the actual message additionally there are other two optional parameters.
+				- mail(to,subject,message,headers):-
+													to-Specifies the receiver / receivers of the email.
+													subject-Specifies the subject of the email.
+													message-Defines the message to be sent.
+													headers-Specifies additional headers, like From, Cc, and Bcc.
+
+2)md5 Encryption:-
+					-md5() function to encrypte a message.use message digest algorihm.
+					-md5(String,raw):-
+										String-pass msg to be encrypte.
+										raw-have 2 value return true or false.true return 16 charater binary formet and false return 32 character hex number.
+
+										
