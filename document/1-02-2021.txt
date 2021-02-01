@@ -1,0 +1,16 @@
+**************database connection***********
+
+server:-
+	The MySQL server. It can also include a port number. e.g. "hostname:port" or a path to a local socket e.g. ":/path/to/socket" for the localhost.
+
+username:-
+	The username. Default value is defined by mysql.default_user. In SQL safe mode, this parameter is ignored and the name of the user that owns the server process is used.
+
+The connect() / mysqli_connect() function opens a new connection to the MySQL server.
+
+Forms Practice:-
+
+Javascript validation.
+HTML and CSS properties.
+PHP Form data submit include checkbox,radio button ,select box.
+
