@@ -1,0 +1,29 @@
+		th
+		{
+			background-color: yellow;
+			color:red;
+		}
+		input[type=text] {
+  				width: 74%;
+  				padding-left: 55px;
+  				background-color: #9FE2BF;
+  				
+  				
+		}
+		
+		
+		textarea
+		{
+			width: 74%;
+  			padding-left: 55px;
+		}
+		select
+		{
+			width: 74%;
+  			padding-left: 55px;
+		}
+
+		th
+		{
+			margin-top: 20px;
+		}
