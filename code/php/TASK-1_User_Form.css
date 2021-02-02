@@ -1,0 +1,37 @@
+.backcolor-blue{
+	background-color: #3366FF;
+}
+.input{
+	background-color: #CCFF66 ;
+	margin:0px 30px;
+}
+.input1{
+	background-color: #CCFF66 ;
+	margin:0px 140px;
+}
+.input2{
+	background-color: #CCFF66 ;
+}
+.input21{
+margin:0px 100px;
+}
+select{
+	background-color: #CCFF66 ;
+}
+textarea{
+	background-color: #CCFF66 ;
+}
+.backcolor-yellow{
+	background-color: #FFFF33;
+}
+.text-red{
+	color:#FF0000;
+	font-weight:bold;
+	text-align:center;
+}
+
+.red{
+	color:red;
+	font-size:16px;
+}
+
