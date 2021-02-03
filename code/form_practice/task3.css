@@ -1,0 +1,63 @@
+body{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    color:yellow;
+}
+.bg{
+	background-color:#051545;
+	width:35%;
+}
+.or{
+    text-align: left;
+    background-color: orange;   
+	height: 30px;
+	color: #fff;
+	padding-left: 10px;
+    padding-top: 10px;
+}
+.or-btn{
+    text-align: right;
+    background-color: orange;   
+	height: 30px;
+	color: #fff;
+	padding-left: 10px;
+    padding-top: 10px;
+}
+label{
+    text-align: right;
+    color: yellow;
+    margin-right: 20px;
+    display: inline-block;
+    width: 150px;
+}
+.r{
+	color: yellow;
+}
+.c{
+    color: yellow;
+}
+.lable_width{
+    margin-bottom: 20px;
+    text-align: center;
+    color: yellow;
+
+}
+input[type=submit]{
+	width: 100px;
+	height: 30px;
+	background-color: green;
+	color: #fff;
+}
+input[type=reset]{
+	width: 100px;
+	height: 30px;
+	background-color: red;
+	color: #fff;
+	margin-right: 10px;
+}
+.span_width{
+    width: 300px;
+    float: right;
+}
