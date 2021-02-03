@@ -1,0 +1,8 @@
+HTML AND JS
+
+1)Html Form Property.
+2)Javascript validations:-
+	Checkbox validaion
+	radio button validation
+	email validation
+3)Form practice which given by Akhilesh sir.
