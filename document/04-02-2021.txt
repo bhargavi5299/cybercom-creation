@@ -1,0 +1,17 @@
+The most commonly used SQL command is SELECT statement. It is used to query the database and retrieve selected data that follow the conditions we want.
+[WHERE Clause] : It specifies which rows to retrieve.
+
+[GROUP BY Clause] : Groups rows that share a property so that the aggregate function can be applied to each group.
+
+[HAVING Clause] : It selects among the groups defined by the GROUP BY clause.
+
+[ORDER BY Clause] : It specifies an order in which to return the rows.
+
+The SQL DISTINCT command is used with SELECT key word to retrieve only distinct or unique data.
+
+The SQL COUNT() function is used to return the number of rows in a query.
+
+*********PHP DATABASE CONNECTION*********
+1)connection
+2)Insert data with insert query
+3)Select data in registration and login with session and cookie.
