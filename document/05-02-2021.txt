@@ -1,0 +1,26 @@
+****OOPS Concept*****
+1)class and object:-
+	A class is a template for objects, and an object is an instance of class.
+	We can create multiple objects from a class. 
+	Each object has all the properties and methods defined in the class, but they will have different 	property values.
+2)Constructor:
+	A constructor allows you to initialize an object's properties upon creation of the object.
+
+3)Constants :-
+	Constants are like variables except that once they are defined they cannot be changed or 	undefined.
+	Constants are automatically global and can be used across the entire script.
+
+4)Properties and methods can have access modifiers which control where they can be accessed.
+	public - the property or method can be accessed from everywhere. This is default.
+	protected - the property or method can be accessed within the class and by classes derived from 		that class.
+	private - the property or method can ONLY be accessed within the class.
+5)Inheritance :-
+	The child class will inherit all the public and protected properties and methods from the parent 		class. also it can have its own properties and methods.
+6)Exception:-
+	Exception handling is used to change the normal flow of the code execution if a specified error 	condition occurs. 
+
+	try - A function using an exception should be in a "try" block. If the exception does not trigger, the 		code will continue as normal. However if the exception triggers, an exception is "thrown".
+
+	throw - This is how you trigger an exception. Each "throw" must have at least one "catch".
+
+	catch - A "catch" block retrieves an exception and creates an object containing the exception 			information.
