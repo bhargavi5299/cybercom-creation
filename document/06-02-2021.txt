@@ -1,0 +1,8 @@
+*****PHP APPLICATION********
+
+1)Database Connection:-
+	connect database
+2)Perform php insert,update ,delete operation.
+3)Ajax Jquery:-
+The ajax() method is used to perform an AJAX (asynchronous HTTP) request.
+All jQuery AJAX methods use the ajax() method. This method is mostly used for requests where the other methods cannot be used.
