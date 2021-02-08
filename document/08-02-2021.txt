@@ -1,0 +1,3 @@
+****HTML Application****
+1)Form data submit curd operation and delete data with ajax.
+Practice Form Application.
