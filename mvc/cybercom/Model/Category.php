@@ -1,9 +1,9 @@
 <?php
-namespace  Model; 
+namespace Model; 
+
 \Mage::loadClassByFileName('model\core\table');
 
-
-class Category extends core\table 
+class Category extends Core\Table
 {
     const STATUS_ENABLED = 'Enable';
     const STATUS_DISABLED ='Disable';
@@ -28,26 +28,20 @@ class Category extends core\table
         else
         {   
             $parent = \Mage::getModel('model\category')->load($this->parentId);
-           
-            
             if (!$parent) {
                 throw new \Exception("Unable to load parent");
             } 
             $pathId = $parent->pathId."/".$this->categoryId;
-            // print_r($pathId);
-            // die();
         }
         $this->pathId = $pathId;
-        print_r($this->pathId);
         $this->Save();                    
     }
 
     public function updateChildernPathIds($categoryPathId, $parentId = null)
-    {   
+    {
         $categoryPathId = $categoryPathId."/";
         $query = "SELECT * FROM `{$this->getTableName()}` WHERE `pathId` LIKE '{$categoryPathId}%' ORDER BY `pathId` ASC";
         $categories = $this->getAdapter()->fetchAll($query);
-       
         if ($categories) {
             foreach ($categories as $key => $row) 
             {

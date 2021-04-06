@@ -1,15 +1,15 @@
 <?php
-namespace Model; 
-\Mage::loadClassByFileName('Model\Core\Table');
-class Shipping  extends Core\Table
+namespace Model;
+
+\Mage::loadClassByFileName('model\core\table');
+
+class Shipping extends Core\Table
 {
     const STATUS_ENABLED = 'Enable';
     const STATUS_DISABLED ='Disable';
-
     public function __construct()
     {
-
-        $this->setPrimaryKey('method_id');
+        $this->setPrimaryKey('methodId');
         $this->setTableName('shipping');
     }
     public function getStatusOption()
@@ -20,9 +20,7 @@ class Shipping  extends Core\Table
         ];    
     }
     
-    
 
 }
-
 
 ?>

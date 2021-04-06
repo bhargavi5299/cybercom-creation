@@ -1,12 +1,19 @@
 <?php
-namespace Block\Admin\Shipping\Edit\Tabs;
+namespace Block\Admin\Shipping\Edit;
 
-\Mage::loadClassByFileName('block\core\template');
+\Mage::loadClassByFileName('block\core\edit\Tabs');
 
-class Media extends \Block\Core\Template
+class Tabs extends \Block\Core\Edit\Tabs
 {
-    public function __construct()
+    public function prepareTabs()
     {
-        $this->setTemplate('admin/shipping/edit/tabs/media.php');
+        parent::prepareTabs();
+        $this->addTab('information',['label'=>'Shippping Information','block'=>'block\admin\shipping\edit\tabs\information']);
+        $this->addTab('category',['label'=>'Shipping Category','block'=>'block\admin\shipping\edit\tabs\category']);
+        $this->addTab('media',['label'=>'Shipping Media','block'=>'block\admin\shipping\edit\tabs\media']);
+
+        $this->setDefalutTab('information');
+        return $this;
     }
 }
+

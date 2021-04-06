@@ -4,56 +4,46 @@ namespace Model\Core;
 class Url
 {
     protected $request = null;
-   
+
     public function setRequest()
     {
-        $this->request = \Mage::getModel('Model\core\request');
-        return $this;       
-
+        $this->request = \Mage::getModel('model\core\request');
+        return $this;
     }
     public function getRequest()
     {
+        if (!$this->request) {
+            $this->setRequest();
+        }
         return $this->request;
     }
-    public function getUrl($actionName=null,$controllerName=null,$params=[],$resetparams=false)
+    public function getUrl($actionName = null, $controllarName = null, $prams = [], $resetparam = false)
     {
-        $final=$_GET;
-        if($resetparams)
-        {
-            $final=[];
-        }
-        
-        if($controllerName==null )
-        {
-            $controllerName=$_GET['c'];
-        }
-        if($actionName==null)
-        {
-            $actionName=$_GET['a'];
+        $final = $_GET;
+        if ($resetparam) {
+            $final = [];
         }
 
-        $final['c']=$controllerName;
-        $final['a']=$actionName;
-        $final = array_merge($final,$params);
-        $queryString=http_build_query($final);
+        if ($controllarName == null) {
+            $controllarName = $this->getRequest()->getGet('c');
+        }
+        if ($actionName == null) {
+            $actionName = $this->getRequest()->getGet('a');
+        }
+        $final['c'] = $controllarName;
+        $final['a'] = $actionName;
+
+        $final = array_merge($final, $prams);
+        $queryString = http_build_query($final);
         unset($final);
-        
-        //return "http://localhost/php_practice/mvc/cybercom/index.php?c={$controllerName}&a={$actionName}";
         return "http://localhost/php_practice/mvc/cybercom/index.php?{$queryString}";
-        exit();
     }
-    public function baseUrl($subUrl=null)
+    public function baseUrl($suburl = null)
     {
-        $url = "http://localhost/php_practice/mvc/cybercom/";
-        if($subUrl)
-        {
-            $url .= $subUrl;
+        $url = 'http://localhost/php_practice/mvc/cybercom/';
+        if ($suburl) {
+            $url .= $suburl;
         }
         return $url;
-       
     }
-
-
 }
-
-?>

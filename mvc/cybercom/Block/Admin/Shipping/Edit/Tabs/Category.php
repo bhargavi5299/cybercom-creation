@@ -1,9 +1,9 @@
 <?php
 namespace Block\Admin\Shipping\Edit\Tabs;
 
-\Mage::loadClassByFileName('block\core\template');
+\Mage::loadClassByFileName('block\core\edit');
 
-class Category extends \Block\Core\Template
+class Category extends \Block\Core\Edit
 {
     public function __construct()
     {

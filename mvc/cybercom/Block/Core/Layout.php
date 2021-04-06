@@ -1,47 +1,48 @@
 <?php
-namespace Block\Core;
-\Mage::loadClassByFileName('Block\Core\template');
+namespace Block\core;
+
+\Mage::loadClassByFileName('block\core\template');
+
 class Layout extends Template
 {
-       function __construct()
-       {
-              $this->setTemplate("core/layout/onecolumn.php");
-            
-              $this->prepareChildren();
-       }
-       public function templateEdit()
-       {
-           $this->setTemplate('core/layout/twocolumn.php');
-       }
+    public function __construct()
+    {
+        $this->setTemplate('core/layout/oneColumn.php');
+        // $this->setTemplate('core/layout/threeColumnWithLeftRightBar.php');
+        $this->prepareChildren();
+    }
 
+    // public function templateEdit()
+    // {
+    //     // $this->setTemplate("core/layout/twoColumnWithLeftBar.php");
+    //     $this->setTemplate('core/layout/threeColumnWithLeftRightBar.php');
+    // }
 
-       public function  prepareChildren()
-       {
-              $header=\Mage::getBlock('Block\core\layout\header');
-              $this->addChild($header,'header');
+    public function prepareChildren()
+    {
+        $left = \Mage::getBlock('block\core\layout\left');
+        $this->addChild($left, "leftTab");
 
-              $headerLink=\Mage::getBlock('Block\core\layout\HeaderLink');
-              $this->addChild($headerLink,'headerLink');
-              
-              $left = \Mage::getBlock('block\core\layout\left');
-              $this->addChild($left,'leftTab');
-       
-              $footer = \Mage::getBlock('block\core\layout\footer');
-              $this->addchild($footer,'footer');
-              
-              $content =\Mage:: getBlock('Block\Core\Layout\Content');
-              $this->addChild($content,'content');
+        $header = \Mage::getBlock('block\core\layout\header');
+        $this->addChild($header, "Header");
 
-       }
-       public function getContent()
-       {
-              return $this->getChild('content');
-       }
-       public function getLeft()
-       {
-              return $this->getChild('leftTab');
-       }
-      
+        $footer = \Mage::getBlock('block\core\layout\footer');
+        $this->addChild($footer, "Footer");
+
+        $content = \Mage::getBlock('block\core\layout\content');
+        $this->addChild($content, "Content");
+
+        $rightBar = \Mage::getBlock('block\core\layout\rightbar');
+        $this->addChild($rightBar, "Rightbar");
+    }
+
+    public function getContent()
+    {
+        return $this->getChild('Content');
+    }
+    public function getLeft()
+    {
+        return $this->getChild('leftTab');
+    }
+
 }
-
-?>

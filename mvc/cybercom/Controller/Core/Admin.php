@@ -1,42 +1,45 @@
 <?php
 namespace Controller\Core;
+
 class Admin
-
 {
-
     protected $request = null;
-    protected $layout = null;
+    protected $layout;
     protected $message;
     public function __construct()
     {
-       $this->setRequest();
+        $this->setRequest();
+    }
+
+    public function setRequest()
+    {
+        $this->request = \Mage::getModel('model\core\request');
+        return $this;
     }
     public function getRequest()
     {
-       return $this->request;
+        if (!$this->request) {
+            $this->setRequest();
+        }
+        return $this->request;
     }
-    public function setRequest()
+
+    public function setLayout(\Block\Core\Template $layout = null)
     {
-       $this->request =\Mage::getModel('Model\core\request');
-       return $this;
-    }
-    public function setLayout(\Block\Core\Template $layout = null, Admin $controllar)    
-    {
-        if (!$layout) 
-        {
-            $layout = \Mage::getBlock('block\core\layout', $controllar);
+        if (!$layout) {
+            $layout = \Mage::getBlock('block\core\layout');
         }
         $this->layout = $layout;
         return $this;
     }
     public function getLayout()
     {
-        if (!$this->layout) 
-        {
-            $this->setLayout(null,$this);    
+        if (!$this->layout) {
+            $this->setLayout(null);
         }
         return $this->layout;
     }
+
     public function randerLayout()
     {
         echo $this->getLayout()->toHtml();
@@ -44,8 +47,7 @@ class Admin
 
     public function setMessage(\Model\Admin\Message $message = null)
     {
-        if (!$message) 
-        {
+        if (!$message) {
             $message = \Mage::getModel('Model\admin\message');
         }
         $this->message = $message;
@@ -53,52 +55,35 @@ class Admin
     }
     public function getMessage()
     {
-        if (!$this->message) 
-        {
+        if (!$this->message) {
             $this->setMessage();
         }
         return $this->message;
     }
-
-
-    protected $final=[];
-    public function redirectUrl($actionName=null,$controllerName=null,$params=[],$resetparams=false)
+    public function redirectUrl($actionName = null, $controllarName = null, $prams = [], $resetparam = false)
     {
-        header("location:".$this->getUrl($actionName,$controllerName,$params,$resetparams));
+        header("Location:" . $this->getUrl($actionName, $controllarName, $prams, $resetparam));
         exit();
     }
-    public function getUrl($actionName=null,$controllerName=null ,$params=[],$resetparams=false)
+    public function getUrl($actionName = null, $controllarName = null, $prams = [], $resetparam = false)
     {
-        $final=$_GET;
-        if($resetparams)
-        {
-            $final=[];
-        }
-        
-        if($controllerName==null )
-        {
-            $controllerName=$_GET['c'];
-        }
-        if($actionName==null)
-        {
-            $actionName=$_GET['a'];
+        $final = $_GET;
+        if ($resetparam) {
+            $final = [];
         }
 
-        $final['c']=$controllerName;
-        $final['a']=$actionName;
-        $final = array_merge($final,$params);
-        $queryString=http_build_query($final);
+        if ($controllarName == null) {
+            $controllarName = $this->getRequest()->getGet('c');
+        }
+        if ($actionName == null) {
+            $actionName = $this->getRequest()->getGet('a');
+        }
+        $final['c'] = $controllarName;
+        $final['a'] = $actionName;
+
+        $final = array_merge($final, $prams);
+        $queryString = http_build_query($final);
         unset($final);
-        
-        //return "http://localhost/php_practice/mvc/cybercom/index.php?c={$controllerName}&a={$actionName}";
         return "http://localhost/php_practice/mvc/cybercom/index.php?{$queryString}";
-        exit();
     }
-
-   
 }
-
-
-
-
-?>

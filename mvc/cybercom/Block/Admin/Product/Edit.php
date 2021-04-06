@@ -1,26 +1,14 @@
 <?php
-namespace Block\Admin\Product; 
-\Mage::loadClassByFileName('Block\Core\Template');
-class Edit extends \Block\Core\Template
+namespace Block\Admin\Product;
+
+\Mage::loadClassByFileName('block\core\Edit');
+
+class Edit extends \Block\Core\Edit
 {
-    
-    public function __construct()
+    public function __Construct()
     {
-        $this->setTemplate('admin/Product/edit.php');
+        parent::__construct();
+        $this->setTabclass('block\admin\product\edit\tabs');
     }
-    
-    public function getTabContent()
-    {
-        $tabBlock = \Mage::getBlock('block\admin\product\edit\tabs');
-        $tabs = $tabBlock->getTabs();
-        $tab = $this->getRequest()->getGet('tab', $tabBlock->getDefaultTab());
-        $blockName = $tabs[$tab]['block'];
-        echo \Mage::getBlock($blockName)->toHtml();
-    }
+
 }
-    
-
-
-
-
-?>

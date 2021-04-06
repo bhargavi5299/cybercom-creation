@@ -3,7 +3,6 @@ namespace Block\Core;
 
 class Template
 {   
-     
     protected $template = null;
     protected $children=[];
     
@@ -16,14 +15,8 @@ class Template
 
     public function __construct()
     {
-        $this->setRequest();
+        $this->setRequest();    
     }
-    public function setRequest()
-    {
-       $this->request =\Mage::getModel('model\core\request');
-       return $this;
-    }
-    
 
     public function setTemplate($template)
     {
@@ -34,37 +27,15 @@ class Template
     {
         return $this->template;
     }
+
     public function toHtml()
-    {
-        ob_start();
-        require_once $this->getTemplate();
-        $content = ob_get_contents();
-        ob_end_clean();
-        return $content;
-
-    }
-
-    public function getRequest()
-    {
-        if (!$this->request) {
-            $this->setRequest();
-        }
-       return $this->request;
-    }
-    public function setUrl($url = null)
-    {
-        if (!$url) {
-            $this->url = \Mage::getModel('model\core\url');
-        }
-        return $this->url;  
-    }
-    public function getUrl()
-    {
-        if (!$this->url) {
-            $this->setUrl();
-        }
-        return $this->url;
-    }
+	{
+		ob_start();
+		require_once $this->getTemplate();
+		$content = ob_get_contents();
+		ob_end_clean();
+		return $content;
+	}
 
     public function setChildren($children = null)
     {
@@ -76,10 +47,14 @@ class Template
         return $this->children;
     }
 
+    public function createChild($className)
+    {
+        return \Mage::getBlock($className);
+    }
+
     public function addChild(Template $child, $key=null)
     {
-        if (!$key) 
-        {
+        if (!$key) {
             $key = get_class($child);
         }
         return $this->children[$key] = $child;
@@ -118,53 +93,39 @@ class Template
         }
         return $this->message;
     }
-    public function createChild($classname)
-    {
-        return \Mage::getBlock($classname);
-    }
-    public function setDefalutTab($defaultTab) 
-    {
-        $this->defaultTab = $defaultTab;
-        return $this;
-    }
-    public function getDefaultTab()
-    {
-        return $this->defaultTab;
-    }
 
-    public function setTabs(array $tabs = [])   
+    public function setRequest()
     {
-        $this->tabs = $tabs;
-        return $this;
+       $this->request = \Mage::getModel('model\core\request');
+       return $this;
     }
-    public function getTabs()
+    public function getRequest()
     {
-        return $this->tabs;
-    }
-    public function addTab($key,$tab =[])
-    {
-        $this->tabs[$key] = $tab;
-        return $this;
-    }
-    public function getTab($key)
-    {
-        if (!array_key_exists($key, $this->tabs)) {
-            return null;
-        }   
-        return $this->tabs[$key];
-    }
-    public function removeTab($key)
-    {
-        if (array_key_exists($key,$this->tabs)) {
-            unset($this->tabs[$key]);
+        if (!$this->request) {
+            $this->setRequest();
         }
+       return $this->request;
+    }
+    public function setUrl($url = null)
+    {
+        if (!$url) {
+            $this->url = \Mage::getModel('model\core\url');
+        }
+        return $this->url;  
+    }
+    public function getUrl()
+    {
+        if (!$this->url) {
+            $this->setUrl();
+        }
+        return $this->url;
     }
     public function baseUrl($suburl)
     {
         return $this->getUrl()->baseUrl($suburl);
     }
-
-
+    
+   
 }
 
 

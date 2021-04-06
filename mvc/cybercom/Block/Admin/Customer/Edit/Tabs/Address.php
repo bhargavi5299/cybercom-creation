@@ -1,28 +1,27 @@
 <?php
-namespace Block\Admin\Customer\Edit\Tabs; 
+namespace Block\Admin\Customer\Edit\Tabs;
 
-\Mage::loadClassByFileName('Block\Core\Template');
-class Address extends \Block\Core\Template
+\Mage::loadClassByFileName('Block\Core\Edit');
+
+class Address extends \Block\Core\Edit
 {
-    protected $customers = null;
     protected $shipping;
     protected $billing;
+
     public function __construct()
     {
-      
-       $this->setTemplate('admin/Customer/edit/tabs/address.php');
+        $this->setTemplate('admin/customer/edit/tabs/address.php');
     }
-    protected function setBilling($billing = NULL)
+
+    protected function setBilling($billing = null)
     {
-        if ($this->billing) 
-        {
+        if ($this->billing) {
             $this->billing = $billing;
         }
-        $billing = \Mage::getModel('model\customerAddress');
-        if( $id = $this->getRequest()->getGet('id'))
-        {
+        $billing = \Mage::getModel('model\customer\Address');
+        if ($id = $this->getTableRow()->customerId) {
             $query = "SELECT * FROM `address` WHERE `customerId` = $id AND type = 'Billing'";
-            $row = $billing->load(NULL,$query);
+            $row = $billing->load(null, $query);
             $this->billing = $row;
         }
         $this->billing = $billing;
@@ -30,24 +29,21 @@ class Address extends \Block\Core\Template
     }
     public function getBilling()
     {
-        if (!$this->billing) 
-        {
+        if (!$this->billing) {
             $this->setBilling();
         }
         return $this->billing;
     }
-    
-    protected function setShipping($shipping = NULL)
+
+    protected function setShipping($shipping = null)
     {
-        if ($this->shipping) 
-        {
+        if ($this->shipping) {
             $this->shipping = $shipping;
         }
-        $shipping = \Mage::getModel('model\customerAddress');
-        if( $id = $this->getRequest()->getGet('id'))
-        {
+        $shipping = \Mage::getModel('model\customer\Address');
+        if ($id = $this->getTableRow()->customerId) {
             $query = "SELECT * FROM `address` WHERE `customerId` = $id AND type = 'Shipping'";
-            $row = $shipping->load(NULL,$query);
+            $row = $shipping->load(null, $query);
             $this->shipping = $row;
         }
         $this->shipping = $shipping;
@@ -55,19 +51,10 @@ class Address extends \Block\Core\Template
     }
     public function getShipping()
     {
-        if (!$this->shipping)
-        {
+        if (!$this->shipping) {
             $this->setShipping();
         }
         return $this->shipping;
     }
+
 }
-    
-
-
-
-
-
-
-
-?>

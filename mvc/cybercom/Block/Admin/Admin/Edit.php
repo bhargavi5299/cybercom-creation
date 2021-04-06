@@ -1,29 +1,13 @@
 <?php
 namespace Block\Admin\Admin;
-\Mage::loadClassByFileName('Block\core\template');
-class Edit extends \Block\Core\Template
+class Edit extends \Block\Core\Edit
 {
-    protected $admin = null;
-    public function __construct()
+    public function __Construct()
     {
-       
-        $this->setTemplate('admin/Admin/edit.php');
-        
+        parent::__Construct();
+        $this->setTabClass('block\admin\admin\edit\tabs');
     }
-    public function getTabContent()
-    {
-        $tabBlock = \Mage::getBlock('block\admin\admin\edit\tabs');
-        $tabs=$tabBlock->getTabs();
-        $tab = $this->getRequest()->getGet('tab', $tabBlock->getDefaultTab());
-        $blockName = $tabs[$tab]['block'];
-        echo \Mage::getBlock($blockName)->toHtml();
-    }
-    
-   
 }
-    
-
-
 
 
 ?>

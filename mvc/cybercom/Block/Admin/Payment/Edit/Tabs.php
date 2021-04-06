@@ -1,28 +1,17 @@
 <?php
-namespace  Block\Payment\Edit;
+namespace Block\Admin\Payment\Edit;
 
-\Mage::loadClassByFileName('block_core_template');
+\Mage::loadClassByFileName('block\core\edit\tabs');
 
-class Tabs extends \Block\Core\Template 
+class Tabs extends \Block\Core\Edit\Tabs 
 {
-    protected $tabs = [];
-    protected $defaultTab;
-    public function __construct()
-    {
-        parent::__construct();
-        $this->setTemplate('admin/Payment/edit/tabs.php');
-        $this->prepareTabs();
-    }
-
     public function prepareTabs()
     {
+        parent::prepareTabs();
         $this->addTab('information',['label'=>'Payment Information','block'=>'block\admin\payment\edit\tabs\information']);
-        $this->addTab('category',['label'=>'Payment Category','block'=>'block\admin\payment\edit\tabs\category']);
-       
-
+        $this->addTab('method',['label'=>'Payment Method','block'=>'block\admin\payment\edit\tabs\method']);
         $this->setDefalutTab('information');
         return $this;
     }
-   
 }
 

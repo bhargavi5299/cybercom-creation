@@ -1,4 +1,3 @@
-// alert(1);	
 var Base = function(){
 
 };
@@ -52,9 +51,15 @@ Base.prototype = {
         }
         return this;
     },
+    setForm: function (form) {
+        this.setMethod($(form).attr('method'));
+        this.setUrl($(form).attr('action'));
+        this.setParams($(form).serializeArray());
+        return this;
+        },
     load : function(){
         self = this;
-        var request = $.ajax({
+        var request = $ .ajax({
             url : this.getUrl(),
             method : this.getMethod(),
             data : this.getParams(),

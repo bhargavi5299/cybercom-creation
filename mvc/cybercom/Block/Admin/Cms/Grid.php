@@ -1,31 +1,90 @@
 <?php
-namespace  Block\Admin\Cms; 
-\Mage::loadClassByFileName('block\core\template'); 
-class Grid extends \Block\Core\Template
+namespace Block\Admin\Cms;
+
+\Mage::loadClassByFileName('block\core\grid');
+
+class Grid extends \Block\Core\Grid   
 {
     protected $cms = null;
 
     public function __construct()
     {
-        $this->setTemplate('admin/cms/grid.php');
+        parent::__construct();
+       /// $this->setTemplate('admin/cms/grid.php');
     }
-    public function setCms($cms = null)
-    {
-        if (!$cms) 
-        {
-            $cms = \Mage::getModel('model\cms');
-            $cms = $cms->fetchAll();
+    public function setCollection($collection = null){
+        if(!$collection){
+        $collectionModel = \Mage::getModel('Model\Cms');
+        $collection = $collectionModel->fetchAll();
         }
-        $this->cms = $cms;
+        $this->collection = $collection;
         return $this;
-    }
-    public function getCms()
-    {
-        if (!$this->cms) {
-            $this->setCms();
         }
-        return $this->cms;     
-    }    
+        
+        public function getCollection(){
+        if(!$this->collection){
+        $this->setCollection();
+        }
+        return $this->collection;
+        }
+        
+        public function prepareColumns(){
+        $this->addColumn('pageId',[
+        'field' => 'pageId',
+        'label' => 'pageId',
+        'type' => 'number'
+        ]);
+        $this->addColumn('title',[
+        'field' => 'title',
+        'label' => 'title',
+        'type' => 'varchar'
+        ]);
+        $this->addColumn('indentifier',[
+            'field' => 'indentifier',
+            'label' => 'indentifier',
+            'type' => 'varchar'
+            ]);
+            $this->addColumn('content',[
+                'field' => 'content',
+                'label' => 'content',
+                'type' => 'varchar'
+                ]);
+        return $this;
+        }
+        
+        public function prepareActions(){
+        $this->addAction('edit',[
+        'label' => 'Edit',
+        'method' => 'getEditUrl'
+        ]);
+        $this->addAction('delete',[
+        'label' => 'Delete',
+        'method' => 'getDeleteUrl'
+        ]);
+        return $this;
+        }
+        
+        public function getEditUrl($row){
+        $url = $this->getUrl()->getUrl('form',null,['id' => $row->pageId]);
+        return "object.setUrl('{$url}').resetParams().load()";
+        }
+        
+        public function getDeleteUrl($row){
+        $url = $this->getUrl()->getUrl('delete',null,['id' => $row->pageId]);
+        return "object.setUrl('{$url}').resetParams().load()";
+        }
+        
+        public function getTitle(){
+        return 'Cms';
+        }
+        
+        public function prepareButtons(){
+        $this->addButton('addNew',[
+        'label' => 'New Cms',
+        'method' => 'getAddNewUrl'
+        ]);
+        return $this;
+        }
 }
 
 

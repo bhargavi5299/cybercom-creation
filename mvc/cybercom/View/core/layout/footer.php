@@ -1,15 +1,17 @@
-<style>
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: lightgray;
-  color: black;
-  text-align: center;
-}
-</style>
+<footer class="text-center text-white" style="background-color: rgb(97, 106, 107);">
+  <!-- Grid container -->
+ 
+  <!-- Grid container -->
 
-<div class="footer">
-  <p style="font-weight: bold;">@copyright You can do it</p>
-</div>
+  <!-- Copyright -->
+  <div class="text-center text-white p-3" style="background-color:rgb(97, 106, 107);">
+    © 2021 Copyright:
+    <a class="text-white" href="https://mdbootstrap.com/">You can do it</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+
+        
+     
+</body>
+</html>

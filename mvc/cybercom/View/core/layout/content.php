@@ -1,9 +1,12 @@
-<?php
+<div id="contentHtml">
+   <?php
 
-$children = $this->getChildren();
+   $children = $this->getChildren();
 
-foreach ($children as $key => $value) {
-   echo $this->getChild($key)->toHtml();
-}
+   foreach ($children as $key => $value) {
+      echo $this->getChild($key)->toHtml();
+   }
 
-?>
+   ?>
+
+</div>

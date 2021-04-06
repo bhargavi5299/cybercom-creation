@@ -1,13 +1,12 @@
 <?php
-namespace Block\Admin\Cms\Edit\Tabs; 
-\Mage::loadClassByFileName('block\core\template'); 
+namespace Block\Admin\Cms\Edit\Tabs;
 
-class Category extends \Block\Core\Template
+\Mage::loadClassByFileName('block\core\edit');
+
+class Category extends \Block\Core\Edit
 {
     public function __construct()
     {
-        $this->setTemplate('admin/Admin/edit/tabs/category.php');       
+        $this->setTemplate('admin/cms/edit/tabs/category.php');
     }
-   
 }
-?>

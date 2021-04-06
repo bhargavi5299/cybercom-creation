@@ -5,98 +5,92 @@ namespace Controller\Admin;
 
 class Payment extends \Controller\Core\Admin
 {
-    public function gridAction()
-    {  
-        try 
-        {
-            $grid = \Mage::getBlock('block\admin\payment\grid');
-            $this->getLayout()->getChild('content')->addChild($grid,'Grid');
-            $this->randerLayout();                
-        } 
-        catch (\Exception $e) 
-        { 
-            $this->getMessage()->setFailure($e->getMessage());
-            $this->redirectUrl('grid',null,[],true);
-        }
-        
+    public function gridHtmlAction()
+    {
+        $grid = \Mage::getBlock('block\admin\payment\grid')->toHtml();
+        $response = [
+            'element' => [
+                [
+                    'selector' => '#contentHtml',
+                    'html' => $grid,
+                ],
+                [
+                    'selector' => '#tabHtml',
+                    'html' => null,
+                ],
+            ],
+        ];
+        header("Content-type:appliction/json; charset=utf-8");
+        echo json_encode($response);
     }
     public function formAction()
     {
-        try 
-        {
-            $edit = \Mage::getBLock('block\admin\payment\edit');
-            $layout = $this->getLayout();
-            $layout->templateEdit();
-            $content = $layout->getContent()->addChild($edit,'Edit');
-
-            $left = $layout->getLeft();
-            $leftTab = \Mage::getBlock('block\admin\payment\edit\tabs');
-            $left->addChild($leftTab,'LeftTab');
-            $this->randerLayout();   
-        } 
-        catch (\Exception $e) 
-        { 
-            $this->getMessage()->setFailure($e->getMessage());
-            $this->redirectUrl('grid',null,[],true);
-        }            
+        $edit = \Mage::getBLock('block\admin\payment\edit');
+        $payment = \Mage::getModel('model\payment');
+        if ($id = $this->getRequest()->getGet('id')) {
+            if (!$payment->load($id)) {
+                throw new \Exception("No Product Data Found");
+            }
+        }
+        $edit->setTableRow($payment);
+        $contentHtml = $edit->toHtml();
+        $response = [
+            'element' => [
+                [
+                    'selector' => '#contentHtml',
+                    'html' => $contentHtml,
+                ],
+            ],
+        ];
+        header("Content-type:appliction/json; charset=utf-8");
+        echo json_encode($response);
     }
     public function saveAction()
     {
-        try 
+        try
         {
             $payment = \Mage::getModel('model\payment');
-            if(!$this->getRequest()->isPost())
-            {
+            if (!$this->getRequest()->isPost()) {
                 throw new \Exception("Invalid Request");
             }
-            $methodId =$this->getRequest()->getGet('id');
+            $methodId = $this->getRequest()->getGet('id');
             if (!$methodId) {
                 date_default_timezone_set('Asia/Kolkata');
                 $payment->createdDate = date("Y-m-d H:i:s");
                 $this->getMessage()->setSuccess("Data Insert Successfully..");
-            }
-            else{
-                $payment =  $payment->load($methodId);
+            } else {
+                $payment = $payment->load($methodId);
                 if (!$payment) {
                     throw new \Exception("Data Not Found");
                 }
                 $this->getMessage()->setSuccess("Data Update Successfully..");
-            }   
-        
+            }
+
             $paymentData = $this->getRequest()->getPost('payment');
-            $payment->setData($paymentData);  
+            $payment->setData($paymentData);
             $payment->Save();
-            $this->redirectUrl('grid',null,[],true);  
-        } 
-        catch (\Exception $e) 
-        {
+            $this->redirectUrl('gridHtml', null, [], true);
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
-            $this->redirectUrl('grid',null,[],true);
-        }        
+            $this->redirectUrl('gridHtml', null, [], true);
+        }
     }
-    
+
     public function deleteAction()
     {
-        try 
+        try
         {
-            $id=$this->getRequest()->getGet('id');
-            if(!$id){
+            $id = $this->getRequest()->getGet('id');
+            if (!$id) {
                 throw new \Exception("Id is not exits");
             }
             $payment = \Mage::getModel('model\payment');
             $delete = $payment->delete($id);
-            if (!$delete) {
-                throw new \Exception("Data Can't Delete");
-            }
             $this->getMessage()->setSuccess("Data Delete Successfully..");
-            $this->redirectUrl('grid',null,[],true);
-        } 
-        catch (\Exception $e) 
-        {
+            $this->redirectUrl('gridHtml', null, [], true);
+        } catch (\Exception $e) {
             $this->getMessage()->setFailure($e->getMessage());
-            $this->redirectUrl('grid',null,[],true);
-        }   
-    }    
+            $this->redirectUrl('gridHtml', null, [], true);
+        }
+    }
 }
-
-?>

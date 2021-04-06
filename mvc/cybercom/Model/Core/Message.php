@@ -1,38 +1,41 @@
 <?php
-namespace Model\Core;
 
-\Mage::loadClassByFileName('model\core\session');
-class Message extends Session
+Mage::loadClassByFileName('model_core_session');
+
+class Model_Core_Message extends \Model\Core\Session 
 {
-   
-    public function setSuccess($message)
-    {   
-        $this->success = $message;
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    public function setSuccess($success)
+    {
+        $this->success = $success;
         return $this;
     }
     public function getSuccess()
     {
-        return $this->success;
+        return $this->success; 
     }
-    public function setFailure($message)
+    public function clearSuccess()
     {
-       $this->failure =$message;
-       return $this;
+        unset($this->success);
+    }
+
+    public function setFailure($failure)
+    {
+        $this->failure = $failure;
+        return $this;
     }
     public function getFailure()
     {
         return $this->failure;
     }
-    public function clearSuccess()
-    {
-        unset($this->success);
-        return $this;
-    }
-
     public function clearFailure()
     {
         unset($this->failure);
     }
+
     public function setNotice($notice)
     {
         $this->notice = $notice;
@@ -42,8 +45,10 @@ class Message extends Session
     {
         return $this->notice;
     }
+    public function clearNotice()
+    {
+        unset($this->failure);
+    }
+
     
 }
-
-
-?>

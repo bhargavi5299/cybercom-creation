@@ -1,35 +1,49 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<div class="navbar navbar-expand-lg navbar-dark " style="background-color: rgb(97, 106, 107)">
+    <div>
+        <a class="navbar-brand" href="#">Questcom</a>
+    </div>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-    <a class="navbar-brand" href="#">QuestCom</a>
-    
-    
-<button style="background-color: green; "><a  style="color:#fff;"href="<?php echo $this->getUrl()->getUrl('grid','Admin',[],true);?>">Admin</a></button>
-<button style="background-color: green; "><a  style="color:#fff;" href="<?php echo $this->getUrl()->getUrl('grid','Product',[],true);?>">Product</a></button>
-<button style="background-color: green; "><a  style="color:#fff;"href="<?php echo $this->getUrl()->getUrl('grid','Category',[],true);?>">Category</a></button>
-<button style="background-color: green; "><a  style="color:#fff;"href="<?php echo $this->getUrl()->getUrl('grid','Customer',[],true);?>">Customer</a></button>
-<button style="background-color: green; "><a  style="color:#fff;" href="<?php echo $this->getUrl()->getUrl('grid','Payment',[],true);?>">Payment</a></button>
-<button style="background-color: green; "><a  style="color:#fff;"href="<?php echo $this->getUrl()->getUrl('grid','Shipping',[],true);?>">Shipping</a></button>
-<button style="background-color: green; "><a  style="color:#fff;"href="<?php echo $this->getUrl()->getUrl('grid','CustomerGroup',[],true);?>">CustomerGroup</a></button>
-<button style="background-color: green; "><a  style="color:#fff;"href="<?php echo $this->getUrl()->getUrl('grid','Cms',[],true);?>">Cms Page</a></button>
-
-    
-    </nav>      
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
-</html>
+    <div class="collapse navbar-collapse" id="collapsibleNavId" >
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 float-right">
+            <li class="nav-item active">
+                <a class="nav-link" href="javascript:void(0)" onclick="object.setUrl('<?php echo $this->getUrl()->getUrl('index', 'index', [], true); ?>').load();" font>Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="object.setUrl('<?php echo $this->getUrl()->getUrl('gridHtml', 'Admin', [], true); ?>').load();">Admin</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="object.setUrl('<?php echo $this->getUrl()->getUrl('gridHtml', 'brand', [], true); ?>').load();">Brand</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="object.setUrl('<?php echo $this->getUrl()->getUrl('gridHtml', 'Cms', [], true); ?>').load();">Cms Page</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="object.setUrl('<?php echo $this->getUrl()->getUrl('grid', 'Cart', [], true); ?>').load();">Cart</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="object.setUrl('<?php echo $this->getUrl()->getUrl('grid', 'Config', [], true); ?>').load();">Config</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="object.setUrl('<?php echo $this->getUrl()->getUrl('gridHtml', 'product', ['page' => 1], true); ?>').load();">Product</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="object.setUrl('<?php echo $this->getUrl()->getUrl('gridHtml', 'Category', [], true); ?>').load()">Category</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="object.setUrl('<?php echo $this->getUrl()->getUrl('gridHtml', 'Customer_Group', [], true); ?>').load();">Customer Group</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="object.setUrl('<?php echo $this->getUrl()->getUrl('gridHtml', 'Customer', [], true); ?>').load();">Customer</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="object.setUrl('<?php echo $this->getUrl()->getUrl('gridHtml', 'Shipping', [], true); ?>').load();">Shipping</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="object.setUrl('<?php echo $this->getUrl()->getUrl('gridHtml', 'Payment', [], true); ?>').load();">Payment</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="object.setUrl('<?php echo $this->getUrl()->getUrl('gridHtml', 'Attribute', [], true); ?>').load();">Attribute</a>
+            </li>
+        </ul>
+    </div>
+</div>

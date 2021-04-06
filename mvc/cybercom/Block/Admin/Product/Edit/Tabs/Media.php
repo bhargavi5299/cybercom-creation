@@ -1,33 +1,36 @@
 <?php
 namespace Block\Admin\Product\Edit\Tabs;
 
-\Mage::loadClassByFileName('block\core\template');
+\Mage::loadClassByFileName('block\core\edit');
 
-
-class Block_Product_Edit_Tabs_Media extends \Block\Core\Template
+class Media extends \Block\Core\Edit
 {
     protected $image = null;
+
     public function __construct()
     {
-        $this->setTemplate('admin/Product/edit/tabs/media.php');
+        $this->setTemplate('Admin/product/edit/tabs/media.php');
     }
 
     public function setImage($image = null)
     {
-        if (!$image) {
-            $id = $this->getRequest()->getGet('id');
-            $image =  \Mage::getModel('model\productMedia');
-            $query = "SELECT * FROM `{$image->getTableName()}` WHERE `productId` = $id";
-            $image = $image->fetchAll($query);
+        if ($this->image) {
+            $this->image = $image;
         }
-        $this->image = $image;
+        if (!$image) {
+            $id = $this->getTableRow()->productId;
+            $imageModel = \Mage::getModel('model\product\Media');
+            $query = "SELECT * FROM `{$imageModel->getTableName()}` WHERE `productId` = $id";
+            $collection = $imageModel->fetchAll($query);
+            $this->image = $collection;
+        }
         return $this;
     }
     public function getImage()
     {
-        if (!$this->image) {
+        if (!$this->image) { 
             $this->setImage();
         }
-        return $this->image;     
-    }        
+        return $this->image;
+    }
 }

@@ -1,12 +1,16 @@
 <?php
-namespace Block\Core\Layout;
+namespace Block\Core\Layout; 
+
 \Mage::loadClassByFileName('block\core\template');
-class Footer extends \Block\Core\Template
+
+class Footer extends \Block\Core\Template 
 {
-    function __construct()
+    public function __construct()
     {
-        $this->setTemplate('/core/layout/footer.php');
-        
+        $this->setTemplate('core/layout/footer.php');
     }
 }
+
+
+
 ?>

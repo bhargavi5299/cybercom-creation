@@ -1,12 +1,15 @@
 <?php
 namespace Block\Core\Layout;
+
 \Mage::loadClassByFileName('block\core\template');
-class Header extends \Block\Core\Template
+
+class Header extends \Block\Core\Template 
 {
-    function __construct()
+    public function __construct()
     {
-        $this->setTemplate('/core/layout/header.php');
-        
+        $this->setTemplate('core/layout/header.php');
+       
     }
 }
+
 ?>

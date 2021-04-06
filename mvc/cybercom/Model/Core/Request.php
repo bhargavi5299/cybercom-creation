@@ -3,25 +3,25 @@ namespace Model\Core;
 
 class Request
 {
-    public function getPost($key=null,$optional=null)
+    public function getPost($key = null, $optional = null)
     {
         if (!$key) {
             return $_POST;
         }
-        if (!array_key_exists($key,$_POST)) {
+        if (!array_key_exists($key, $_POST)) {
             return $optional;
         }
         return $_POST[$key];
     }
-    public function getGet($key=null,$optional=null)
+    public function getGet($key = null, $optional = null)
     {
         if (!$key) {
             return $_GET;
         }
-        if (!array_key_exists($key,$_GET)) {
+        if (!array_key_exists($key, $_GET)) {
             return $optional;
         }
-        return $_GET[$key]; 
+        return $_GET[$key];
     }
     public function isPost()
     {
@@ -32,17 +32,10 @@ class Request
     }
     public function getActionName()
     {
-        return $this->getGet('a','index');
+        return $this->getGet('a', 'index');
     }
-    public function getControllarName()
+    public function getControllerName()
     {
-        return $this->getGet('c','index');
+        return $this->getGet('c', 'index');
     }
 }
-
-
-
-
-
-
-?>
