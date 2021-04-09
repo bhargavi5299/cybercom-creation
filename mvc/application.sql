@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2021 at 08:31 AM
+-- Generation Time: Apr 09, 2021 at 03:37 PM
 -- Server version: 10.4.17-MariaDB
--- PHP Version: 7.3.26
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,18 +33,18 @@ CREATE TABLE `address` (
   `address` varchar(500) NOT NULL,
   `city` varchar(255) NOT NULL,
   `state` varchar(255) NOT NULL,
-  `zipcode` int(255) NOT NULL,
+  `zipCode` int(255) NOT NULL,
   `country` varchar(255) NOT NULL,
-  `type` varchar(255) NOT NULL
+  `addressType` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `address`
 --
 
-INSERT INTO `address` (`addressId`, `customerId`, `address`, `city`, `state`, `zipcode`, `country`, `type`) VALUES
-(1, 1, '73SHKTI SHYAM NAGAR SOCIETY JUNAGADHROAD', 'VISAVADER', 'Gujarat', 362130, 'India', 'Billing'),
-(3, 1, 'Shipping', 'VISAVADER', 'Gujarat', 362130, 'India', 'Shipping'),
+INSERT INTO `address` (`addressId`, `customerId`, `address`, `city`, `state`, `zipCode`, `country`, `addressType`) VALUES
+(1, 1, 'cybercom', 'ahmedabad', 'gujarat', 382350, 'india', 'Billing'),
+(3, 1, 'cybercom', 'ahmedabad', 'gujarat', 382350, 'india', 'Shipping'),
 (4, 2, 'Neelkanth Elegance, Times Of India Press Road, near Vejalpur, Vejalpur, Ahmedabad, Gujarat, India\r\nA-1003', 'Ahmedabad City', 'Gujarat', 380051, 'India', 'Billing'),
 (5, 2, 'Shipping', 'VISAVADER', 'Gujarat', 362130, 'India', 'Shipping');
 
@@ -67,7 +67,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminId`, `username`, `password`, `status`, `createdDate`) VALUES
-(9, 'jalpa', '3049a1f0f1c808cdaa4fbed0e01649b1', 'Enable', '2021-03-23 13:29:03'),
+(9, 'Mansi', '44eb55eef77d762b1a9aa179075c222e', 'Enable', '2021-03-23 13:29:03'),
 (10, 'saloni', '4b08a322a1da2ff24a298708cecd8eb6', 'Enable', '2021-03-23 13:29:16'),
 (12, 'piya', '3049a1f0f1c808cdaa4fbed0e01649b1', 'Disable', '2021-04-01 14:33:10');
 
@@ -171,10 +171,10 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cartId`, `sessionId`, `customerId`, `total`, `discount`, `paymentMethodId`, `shippingMethodId`, `shippingAmount`, `grandTotal`, `createdDate`) VALUES
-(1, 0, 1, '1100', 1, 1, 4, 1000, 0, '2021-03-31 14:11:59'),
+(1, 0, 1, '-30', 1, 9, 4, 54200, 0, '2021-03-31 14:11:59'),
 (51, 0, 0, '0', 0, 0, 0, 0, 0, '2021-03-31 10:45:52'),
 (52, 0, 4, '0', 0, 0, 0, 0, 0, '2021-04-02 08:07:09'),
-(53, 0, 2, '0', 0, 0, 0, 0, 0, '2021-04-02 10:22:34');
+(53, 0, 2, '-30', 0, 0, 4, 54200, 0, '2021-04-02 10:22:34');
 
 -- --------------------------------------------------------
 
@@ -185,8 +185,8 @@ INSERT INTO `cart` (`cartId`, `sessionId`, `customerId`, `total`, `discount`, `p
 CREATE TABLE `cart_address` (
   `cartAddressId` int(50) NOT NULL,
   `cartId` int(50) NOT NULL,
-  `firstName` int(11) NOT NULL,
-  `lastName` int(11) NOT NULL,
+  `firstName` varchar(100) NOT NULL,
+  `lastName` varchar(100) NOT NULL,
   `address` varchar(50) NOT NULL,
   `addressType` varchar(100) NOT NULL,
   `city` varchar(100) NOT NULL,
@@ -201,7 +201,8 @@ CREATE TABLE `cart_address` (
 --
 
 INSERT INTO `cart_address` (`cartAddressId`, `cartId`, `firstName`, `lastName`, `address`, `addressType`, `city`, `state`, `country`, `zipCode`, `sameAsBilling`) VALUES
-(1, 1, 0, 0, '', 'Billing', 'ahmedabad', 'gujarat', 'india', 382350, 'cybercome as ');
+(1, 1, 'Bhargavi', 'prajapati', 'cybercom', 'Billing', 'ahmedabad', 'gujarat', 'india', 382350, 'cybercome as '),
+(2, 2, 'piya', 'malviya', 'nikol', 'shipping', 'ahmedabad', 'ujaray', 'india', 111, 'as');
 
 -- --------------------------------------------------------
 
@@ -226,9 +227,8 @@ CREATE TABLE `cart_item` (
 
 INSERT INTO `cart_item` (`cartitemId`, `cartId`, `productId`, `quantity`, `baseprice`, `price`, `discount`, `createdDate`) VALUES
 (12, 51, 55, 10, 12000, 0, 120, '2021-03-31 10:45:52.000000'),
-(13, 51, 1, 24, 11, 0, 0, '2021-04-01 13:58:35.000000'),
 (16, 53, 1, 3, 20000, 0, 10, '2021-04-02 10:23:29.000000'),
-(17, 1, 1, 3, 20000, 0, 10, '2021-04-02 15:21:05.000000');
+(18, 1, 3, 3, 20, 0, 10, '2021-04-06 13:40:25.000000');
 
 -- --------------------------------------------------------
 
@@ -251,14 +251,12 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`categoryId`, `parentId`, `name`, `status`, `description`, `pathId`, `ca`) VALUES
-(1, 0, 'Bedroom', 'Enable', 'heklo', '1', 0),
-(2, 1, 'Bed', 'Enable', '', '1/2', 0),
-(3, 2, 'Panelbed', 'Enable', '', '1/2/3', 0),
-(4, 3, 'header', 'Enable', '', '1/2/3/4', 0),
-(5, 3, 'footer', 'Enable', '', '1/2/3/5', 0),
+(2, 10, 'Bed', 'Enable', '', '10/2', 0),
+(4, 10, 'header', 'Enable', '', '10/4', 0),
+(5, 0, 'footer', 'Enable', '', '5', 0),
 (6, 0, 'Sofa', 'Enable', '', '6', NULL),
-(7, 6, 'justSofa', '0', '', '6/7', 0),
-(10, 5, 'Bedroom', 'Enable', 'footer', '1/2/3/5/10', 0);
+(10, 0, 'Bedroom', 'Enable', 'footer', '10', 0),
+(13, 6, 'catta', 'Enable', 'Sofa', '6/13', 0);
 
 -- --------------------------------------------------------
 
@@ -285,7 +283,8 @@ INSERT INTO `categorymedia` (`imageId`, `categoryId`, `image`, `label`, `icon`, 
 (2, 1, '1617103649-2598-Nature-HD-Sea-View1.jpg', 'image2', 0, 0, 1, ''),
 (3, 0, '', 'image1', 0, 0, 0, ''),
 (4, 0, '', '', 1, 0, 0, ''),
-(5, 0, '', '', 0, 1, 0, '');
+(5, 0, '', '', 0, 1, 0, ''),
+(7, 2, '1617887491-3127-Nature-HD-Sea-View1.jpg', 'Nature', 1, 1, 1, '');
 
 -- --------------------------------------------------------
 
@@ -308,9 +307,9 @@ CREATE TABLE `cms` (
 
 INSERT INTO `cms` (`pageId`, `title`, `indentifier`, `content`, `status`, `createdDate`) VALUES
 (1, 'Html', '123456', '<p><strong>hello</strong></p>', 0, '2021-03-08 13:25:54'),
-(2, 'Php', '452', '<p><a href=\"mailto:bhargaveep@gmail.com?subject=Hello&amp;body=Hello\">hello</a></p>', 1, '2021-03-08 13:34:11'),
+(2, 'Php', '452', '<p><em><a href=\"mailto:bhargaveep@gmail.com?subject=Hello&amp;body=Hello\">hello</a></em></p>', 0, '2021-03-08 13:34:11'),
 (3, 'For user', 'About Us', '<p><strong>Hello How are you?<a href=\"http://shine.com\">Hello BHargavi</a></strong></p>', 1, '2021-03-10 12:41:09'),
-(6, 'php', 'gello', '<p><em><strong>xsxs</strong></em></p>', 0, '2021-03-24 12:40:06'),
+(6, 'php', 'gello', '<p><strong><em>Bhargavi</em></strong></p>', 0, '2021-03-24 12:40:06'),
 (7, 'java', '1234', '<p>HEllo</p>', 1, '2021-03-24 17:50:58');
 
 -- --------------------------------------------------------
@@ -333,8 +332,8 @@ CREATE TABLE `config` (
 --
 
 INSERT INTO `config` (`configId`, `groupId`, `title`, `code`, `value`, `createdDate`) VALUES
-(14, 0, 'questocim', 201, 22, '2021-04-05 13:50:48.181294'),
-(15, 0, 'keke', 11, 11, '2021-04-05 13:53:37.215493');
+(14, 0, 'questcom', 101, 11000, '2021-04-05 13:50:48.181294'),
+(18, 0, 'sky', 103, 3000, '2021-04-08 18:36:40.068136');
 
 -- --------------------------------------------------------
 
@@ -445,7 +444,7 @@ CREATE TABLE `product` (
   `status` varchar(50) NOT NULL,
   `createdDate` datetime NOT NULL,
   `updatedDate` datetime NOT NULL,
-  `brand` varchar(255) DEFAULT NULL,
+  `brandName` varchar(255) DEFAULT NULL,
   `color` varchar(255) DEFAULT NULL,
   `size` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -454,9 +453,16 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`productId`, `brandId`, `sku`, `name`, `price`, `discount`, `quantity`, `description`, `status`, `createdDate`, `updatedDate`, `brand`, `color`, `size`) VALUES
+INSERT INTO `product` (`productId`, `brandId`, `sku`, `name`, `price`, `discount`, `quantity`, `description`, `status`, `createdDate`, `updatedDate`, `brandName`, `color`, `size`) VALUES
 (1, 6, '10000', 'saloni', 20000, 10, 2, 'tv', 'Enable', '0000-00-00 00:00:00', '2021-04-02 01:48:56', '', '', 0),
-(3, 6, '10', 'kitkat', 20, 10, 8, 'jhkjhj', '', '2021-04-02 11:32:39', '0000-00-00 00:00:00', NULL, NULL, NULL);
+(3, 6, '10', 'kitkat', 20, 10, 8, 'jhkjhj', '', '2021-04-02 11:32:39', '0000-00-00 00:00:00', NULL, NULL, NULL),
+(7, 6, '10', 'kitkat', 50, 10, 20, 'TV', '', '2021-04-08 21:36:21', '0000-00-00 00:00:00', NULL, NULL, NULL),
+(8, 5, '', '', 0, 0, 0, '', '', '2021-04-08 21:39:55', '0000-00-00 00:00:00', NULL, NULL, NULL),
+(9, 5, '', '', 0, 0, 0, '', '', '2021-04-08 21:40:06', '0000-00-00 00:00:00', NULL, NULL, NULL),
+(10, 6, '12', 'kitkat', 20, 10, 2, 'TV', '', '2021-04-08 21:49:29', '0000-00-00 00:00:00', NULL, NULL, NULL),
+(11, 5, '', '', 0, 0, 0, '', '', '2021-04-08 21:49:51', '0000-00-00 00:00:00', NULL, NULL, NULL),
+(12, 5, '', '', 0, 0, 0, '', '', '2021-04-08 21:52:24', '0000-00-00 00:00:00', NULL, NULL, NULL),
+(13, 5, '', '', 0, 0, 0, '', '', '2021-04-08 21:52:32', '0000-00-00 00:00:00', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -495,7 +501,8 @@ INSERT INTO `productmedia` (`imageId`, `image`, `label`, `small`, `thumb`, `base
 (36, '1616845325-1496-MSD.jpg', '', 0, 0, 0, 0, 0),
 (37, '1616845326-4221-MSD.jpg', '', 0, 0, 0, 0, 0),
 (38, '1616845348-9477-MSD.jpg', '', 0, 0, 0, 0, 0),
-(39, '1616845348-3550-MSD.jpg', '', 0, 0, 0, 0, 0);
+(39, '1616845348-3550-MSD.jpg', '', 0, 0, 0, 0, 0),
+(40, '1617889947-3322-Nature-HD-Sea-View1.jpg', 'nature', 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -525,7 +532,11 @@ INSERT INTO `product_group_price` (`entityId`, `productId`, `customerGroupId`, `
 (8, 55, 7, '0'),
 (9, 14, 5, '7890'),
 (10, 55, 6, '1100'),
-(11, 55, 8, '450');
+(11, 55, 8, '450'),
+(12, 1, 1, '1200'),
+(13, 1, 2, '1200'),
+(14, 1, 5, '1500'),
+(15, 1, 6, '1200');
 
 -- --------------------------------------------------------
 
@@ -724,25 +735,25 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `cart_address`
 --
 ALTER TABLE `cart_address`
-  MODIFY `cartAddressId` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cartAddressId` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `cart_item`
 --
 ALTER TABLE `cart_item`
-  MODIFY `cartitemId` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `cartitemId` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `categoryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `categoryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `categorymedia`
 --
 ALTER TABLE `categorymedia`
-  MODIFY `imageId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `imageId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `cms`
@@ -754,7 +765,7 @@ ALTER TABLE `cms`
 -- AUTO_INCREMENT for table `config`
 --
 ALTER TABLE `config`
-  MODIFY `configId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `configId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `config_group`
@@ -784,19 +795,19 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `productmedia`
 --
 ALTER TABLE `productmedia`
-  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `product_group_price`
 --
 ALTER TABLE `product_group_price`
-  MODIFY `entityId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `entityId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `shipping`
